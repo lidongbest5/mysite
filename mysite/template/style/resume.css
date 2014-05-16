@@ -1,0 +1,69 @@
+﻿.resume{margin:25px auto 0 auto;width:980px;background: url(/static/images/resume-background.png) repeat;position: relative;padding-top: 25px;font-family: 'Georgia','Arial';text-align:left;}
+.resume-header{width:100%;height:43px;background: url(/static/images/resume-header.png) repeat-x;margin-bottom: 30px;}
+.resume-header-left{width:15px;height:56px;background: url(/static/images/resume-header-left.png) no-repeat;position: absolute;top:25px;left:-15px;}
+.resume-header-right{width:14px;height:56px;background: url(/static/images/resume-header-right.png) no-repeat;position: absolute;top:25px;right:-14px;}
+.resume-logo{width:213px;height:71px;background: url(/static/images/resume-logo.png) no-repeat;position: absolute;top:10px;left:30px;}
+.resume-header ul li a{width:24px;height:24px;float: left;margin-right: 12px;display: block;position:absolute;top:34px;}
+.facebook{background: url(/static/images/facebook.png) no-repeat;right:60px;}
+.twitter{background: url(/static/images/twitter.png) no-repeat;right:25px;}
+.info-main{float: left;padding:25px 0 0 45px;width:445px;}
+.info-main h1{width:247px;height:58px;background: url(/static/images/name.png) no-repeat;margin-bottom: 15px;}
+.info-main h2{width:380px;height:32px;background: url(/static/images/work.png) no-repeat;}
+.info-others{float: left;width:405px;padding-left: 45px;}
+.info-others li{margin-bottom: 8px;padding-bottom:8px;border-bottom: 1px solid #d7d4d4;}
+.info-others li.available{height:45px;background:url(/static/images/available.png) no-repeat;border-bottom: 2px solid #022e63;}
+.info-others li.website{height:45px;background:url(/static/images/website.png) no-repeat;}
+.info-others li.mobile{height:41px;background:url(/static/images/mobile.png) no-repeat;}
+.info-others li.email{height:45px;background:url(/static/images/email.png) no-repeat;}
+.personal-info{margin-bottom: 10px;}
+.statement-education,.skill-experience{float:left;}
+.statement-education{width:490px;}
+.skill-experience{width:489px;border-left:1px solid #c2c2c2;}
+.statement{padding:0px 35px 99px 45px;}
+.resume-title{padding-bottom: 12px;border-bottom: 3px dotted #C2C2C2;margin-bottom: 15px;}
+.statement-title{height:23px;background:url(/static/images/statement.png) no-repeat;}
+.statement-detail p{margin-left: 180px;font-size:14px;color:#737475;line-height: 20px;}
+.statement-detail .avatar{width:150px;height:160px;border: 1px solid #d3cdcd;border-radius: 4px;padding: 5px;float: left;box-shadow: 0 0 3px #B6B4B4;}
+.education,.skill,.experience{padding:0px 35px 0 45px;}
+.skill{padding-bottom: 23px;}
+.education-title{height:23px;background: url(/static/images/education.png) no-repeat;}
+.education li,.experience li{position: relative;margin-bottom: 30px;}
+.education li h4,.experience li h4{color:black;font-size: 20px;margin-bottom: 5px;}
+.education li h5,.experience li h5{color:black;font-size: 16px;margin-bottom: 8px;}
+.education li p,.experience li p{color:#737475;font-size: 14px;line-height: 18px;}
+.education li .education-date,.experience li .experience-date{text-align: center;color: white;background: #898989;height:27px;position: absolute;top:-5px;right:0px;font-size: 14px;font-weight: bold;line-height: 26px;border-radius: 2px;padding: 0 8px;}
+.skill .skill-title{height:28px;background: url(/static/images/skill.png) no-repeat;padding-bottom: 7px;}
+.skill li{margin-bottom: 8px;}
+.skill li .skill-name{width:138px;color: black;font-size: 14px;font-weight: bold;display: inline-block;}
+.skill li .skill-whole{width:268px;height:18px;background: #bebebf;display: inline-block;position: relative;top:3px;}
+.skill li .skill-rate{height:18px;background: #1b579e;display: block;}
+.htmlcss{width:90%;}
+.javascript{width:85%;}
+.html5css3{width:40%;}
+.python{width:70%;}
+.php{width:50%;}
+.cms{width:60%;}
+.linux{width:55%;}
+.photoshop{width:40%;}
+.experience .experience-title{height:28px;background: url(/static/images/experience.png) no-repeat;padding-bottom: 7px;}
+.portfolio .portfolio-title{height:23px;background: url(/static/images/portfolio.png) no-repeat;margin-bottom: 25px;}
+.portfolio{padding:0px 35px 15px 45px;}
+.portfolio ul{border-bottom: 1px solid #d7d7d7;}
+.portfolio li{width:110px;height:110px;border: 1px solid #d3cdcd;border-radius: 4px;padding: 5px;float: left;box-shadow: 0 0 3px #B6B4B4;margin-right: 30px;margin-bottom: 25px;}
+.portfolio li.last{margin-right: 0px;}
+.resume-bottom{padding-bottom:10px;margin:0 35px 25px 45px;border-bottom: 1px solid #d7d7d7;}
+.whyme{width:409px;border-right: 1px solid #d2d2d2;padding: 10px 35px 0 0;float:left;}
+.whyme-title{height:29px;background: url(/static/images/whyme.png) no-repeat;padding-bottom: 6px;}
+.whyme ul{padding-left: 15px;}
+.whyme li{list-style-type:disc;color:#737475;font-size: 14px;line-height: 18px;margin-bottom: 2px;}
+.contactme{padding: 10px 0 0 40px;width:415px;float:left;}
+.contactme-title{height:23px;background: url(/static/images/contactme.png) no-repeat;}
+.contactme div{margin-bottom: 10px;}
+.contactme span{color: #acacac;width:80px;display: inline-block;font-size: 17px;}
+.contactme input{color: #acacac;padding:3px;width:327px;height:22px;border:1px solid #dadada;box-shadow: 0 0 3px #B6B4B4;display: inline-block;outline: none;-webkit-transition: all 0.3s ease 0s;-moz-transition: all 0.3s ease 0s;-o-transition: all 0.3s ease 0s;-ms-transition: all 0.3s ease 0s;transition: all 0.3s ease 0s;font-size: 14px;}
+.contactme textarea{color: #acacac;padding:3px;width:327px;height:74px;resize:none;border:1px solid #dadada;box-shadow: 0 0 3px #B6B4B4;display: inline-block;outline: none;-webkit-transition: all 0.3s ease 0s;-moz-transition: all 0.3s ease 0s;-o-transition: all 0.3s ease 0s;-ms-transition: all 0.3s ease 0s;transition: all 0.3s ease 0s;overflow: hidden;font-size: 14px;}
+.contactme input:focus,.contactme textarea:focus{box-shadow: 0 0 3px #1b579e;}
+.contactme a{width:96px;height:36px;display: block;background: #022e63;text-align: center;border: 1px solid #c2c2c2;color:white;font-weight: bold;line-height: 36px;font-size: 14px;margin-left: 318px;}
+.contactme-message span{position: relative;top:-65px;}
+.resume-loading{width:300px;height:120px;display:none;background:url(/static/images/loading.gif) no-repeat;position:absolute;bottom:143px;left:340px;}
+.resume-tip{color:#1b579e;font-size:14px;line-height:18px;}

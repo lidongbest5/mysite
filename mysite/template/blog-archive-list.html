@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Blog - Lidong's site</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/static/icon/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/static/style/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/style/common.css" />
+<!--[if IE]>
+<script type="text/javascript" src="/static/js/html5.js"></script>
+<![endif]-->
+<!--[if IE 6]>
+<script type="text/javascript" src="/static/js/DD_belatedPNG.js"></script>
+<script type="text/javascript" >
+    DD_belatedPNG.fix('.png');
+</script>
+<![endif]-->
+</head>
+<body>
+    <div class="wrapper clearfix">
+        {%include "header.html"%}
+        <div class="blog-container">
+        	<ul class="blog-list">
+        	{% if s != null %}
+        		<div class="search-tip">Search Results for:{{ s }}</div>
+        			{% endif %}
+                {% if data|length != 0 %}
+            	    {% for blog in data %}
+            	    	<li>
+            	    		<div class="content-opt">
+            	    		    <div class="content-category">{{ blog.category }}</div>
+            	    		    <div class="content-date">{{ blog.date|date:"M d Y" }}</div>
+            	    		</div>
+            	    		<section>
+            	    			<h5><a href="http://lidongbest5.com/blog/{{ blog.id }}">{{ blog.title }}</a></h5>
+            	    				<p>{{ blog.content|safe }}</p>
+            	    			<a class="read-more" href="http://lidongbest5.com/blog/{{ blog.id }}"><span>Read more</span></a>
+            	    		</section>
+            	    	</li>
+            	    {% endfor %}
+                {% elif s != null %}
+                    <li class="nothing">Sorry, but nothing matched your search criteria. Please try again with some different keywords...</li>
+                {% endif %}
+        	</ul>
+        	{%include 'blog-aside.html'%}
+        </div>
+    </div>
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/index.js"></script>
+{% include 'tongji.html' %}
+</body>
+</html>
+

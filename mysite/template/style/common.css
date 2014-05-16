@@ -1,0 +1,59 @@
+/* =Reset
+-----------------------------------------------------------------------------*/
+html{color:#000;background:#FFF;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:normal;font-weight:normal;}
+del,ins{text-decoration:none;}
+li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;font-variant:normal;}
+sup{vertical-align:baseline;}
+sub{vertical-align:baseline;}
+legend{color:#000;}
+input,button,textarea,select,optgroup,option{font-size:medium;font-style:normal;font-weight:normal;}
+article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block;}
+
+/* =General
+-----------------------------------------------------------------------------*/
+/*** Fonts ***/
+.f12{font-size:12px;}
+.f13{font-size:13px;}
+.f14{font-size:14px;}
+.f16{font-size:16px;}
+.f20{font-size:20px;}
+.fb{font-weight:bold;}
+.fn{font-weight:normal;}
+.t2{text-indent:2em;}
+.lh15em{line-height:1.5em;}
+.lh18em{line-height:1.8em;}
+.1h20em{line-height:2em}
+.unl{text-decoration:underline;}
+.no_nul{text-decoration:none;}
+/*** Location ***/
+.tl{text-align:left;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+.bc{margin:0 auto;}
+.fl{float:left;display:inline;}
+.fr{float:right;display:inline;}
+.cb{clear:both;}
+.cl{clear:left;}
+.cr{clear:right;}
+/* Class for clearing floats */
+.clearfix:after {content:"."; height:0; visibility:hidden; display:block; clear:both;}
+.clearfix {display:inline-block;}
+* html .clear {height:1%;}
+.clearfix {display:block;}
+/* End clearing floats */
+.vm{vertical-align:middle;}
+.pr{position:relative;}
+.pa{position:absolute;}
+.zoom{zoom:1;}
+.hidden{visibility:hidden;}
+.none{display:none;}
+
+a:link, a:visited{ text-decoration: none;}

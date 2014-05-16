@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>居家必备小型记账系统 - Lidong's site</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/static/icon/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/static/style/common.css" />
+<style>
+	h1{font-size: 28px;margin: 15px 0;font-weight: bold;}
+	h2{font-size: 20px;margin: 12px 0;font-weight: bold;border-bottom: 1px solid #cccccc;}
+	input[type="submit"]{font-size:13px;padding: 2px 5px;}
+	input[type="text"]{font-size: 13px;padding: 2px;}
+	.account{width:980px;margin: 0 auto;position: relative;}
+	.account-total{padding-bottom: 10px;}
+	.account-total table{width:600px;text-align: left;float:left;}
+	.account-total input{float:left;margin-top: 15px;}
+	.account-new p{margin-bottom: 8px;}
+	.account-new lable{margin:0 5px;}
+	.account-detail{width:960px;height:300px;border: 1px solid #cccccc;overflow: auto;padding:10px;}
+	.account-detail table{width:100%;}
+	.account-detail table tr{border-bottom: 1px solid #cccccc;}
+	.account-detail table tr:hover{background: #cecece;}
+	.account-detail table th,.account-detail table td{padding:5px;}
+	.account .loading{width: 54px;height: 55px;background: url('/static/images/loading_new.gif') no-repeat;position: absolute;left:474px;top:0px;display: none;}
+</style>
+</head>
+<body>
+    <div class="account">
+    	<h1>居家必备小型记账系统</h1>
+    	<h2>总帐记录</h2>
+    	<div class="account-total clearfix">
+    		<table>
+    			<tbody>
+    				<tr>
+    					<th>武显赫</th>
+    					<th>张斯晗</th>
+    					<th>李阳</th>
+    					<th>李东</th>
+    				</tr>
+    				<tr>
+    					<td>{{ num.he }}</td>
+    					<td>{{ num.han }}</td>
+    					<td>{{ num.yang }}</td>
+    					<td>{{ num.dong }}</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    	</div>
+    	<h2>新增帐目</h2>
+    	<div class="account-new">
+    		<p>数目：<input type="text" id="num"></p>
+    		<p>用途：<input type="text" id="content"></p>
+    		<p>人员：
+    			<input type="radio" value="武显赫"><lable>武显赫</lable>
+	    		<input type="radio" value="张斯晗"><lable>张斯晗</lable>
+	    		<input type="radio" value="李阳"><lable>李阳</lable>
+	    		<input type="radio" value="李东"><lable>李东</lable>
+	    		<input type="submit" value="全选">
+	    		<input type="submit" value="清空">
+	    	</p>
+	    	<p>债主：<select>
+	    		<option value="武显赫">武显赫</option>
+	    		<option value="张斯晗">张斯晗</option>
+	    		<option value="李阳">李阳</option>
+	    		<option value="李东">李东</option>
+	    	</select></p>
+	    	<input type="submit" value="新增">
+    	</div>
+    	<h2>帐目明细</h2>
+    	<div class="account-detail">
+    		<table>
+    			<tbody>
+    				<tr>
+    					<th>时间</th>
+    					<th>数目</th>
+    					<th>用途</th>
+    					<th>人员</th>
+    					<th>债主</th>
+    				</tr>
+    				{% for item in detail %}
+    					<tr>
+    						<td>{{ item.date|date:"Y - n - j" }}</td>
+    						<td>{{ item.num }}</td>
+    						<td>{{ item.content }}</td>
+    						<td>{{ item.name }}</td>
+    						<td>{{ item.owner }}</td>
+    					</tr>
+    				{% endfor %}
+    			</tbody>
+    		</table>
+    	</div>
+    	<div class="loading"></div>
+    </div>
+    <script src="/static/js/jquery.js"></script>
+    <script>
+        (function($){
+            var input_radio = $('.account-new input[type="radio"]'),
+                input_num = $('.account-new input[type="text"]:eq(0)'),
+                input_content = $('.account-new input[type="text"]:eq(1)'),
+                input_all = $('.account-new input[type="submit"]:eq(0)'),
+                input_clear = $('.account-new input[type="submit"]:eq(1)'),
+                input_submit = $('.account-new input[type="submit"]:eq(2)'),
+                input_clearall = $('.account-total input[type="submit"]:eq(0)'),
+                input_select = $('.account-new select:eq(0)'),
+                input_array = [],
+                input_newarray = new Array(0,0,0,0);
+            var handle = {
+                radioBtnEvent : function(ischecked, str){
+                    input_radio.attr('checked',ischecked);
+                    input_array = str;
+                },
+                addAccount : function(){
+                    var input_owner;
+                    switch(input_select.val()){
+                        case "武显赫":
+                            input_owner = 1;
+                            break;
+                        case "张斯晗":
+                            input_owner = 2;
+                            break;
+                        case "李阳":
+                            input_owner = 3;
+                            break;
+                        case "李东":
+                            input_owner = 4;
+                            break;
+                    }
+                    $('.loading').show();
+                    $.ajax({
+                        url : '/addAccount/',
+                        type : 'post',
+                        data : 'num='+input_num.val()+'&content='+input_content.val()+'&name='+input_array+'&owner='+input_select.val()+'&input_owner='+input_owner+'&input_newarray='+input_newarray,
+                        success : function(data){
+                            data = JSON.parse(data);
+                            $('.loading').hide();
+                            if(data.code == 1)
+                                location.reload();
+                            else
+                                alert("反正就是有错，重新输入吧!");
+                        }
+                    })
+                }
+            }
+            input_radio.each(function(index){
+                $(this).change(function(){
+                    input_array.push(this.value);
+                    input_newarray[index] = 1;
+                });
+            });
+            input_clear.click(function(){
+                handle.radioBtnEvent(false,[]);
+                input_newarray = new Array(0,0,0,0);
+            });
+            input_all.click(function(){
+                handle.radioBtnEvent(true,['武显赫','张斯晗','李阳','李东']);
+                input_newarray = new Array(1,1,1,1);
+            });
+            input_submit.click(function(){
+                handle.addAccount();
+            });
+            input_clearall.click(function(){
+                $('.loading').show();
+                $.ajax({
+                    url : '/clearAccount/',
+                    type : 'post',
+                    success : function(data){
+                        data = JSON.parse(data);
+                        $('.loading').hide();
+                        if(data.code == 1)
+                            location.reload();
+                        else
+                            alert("网络错误");
+                    }
+                })
+            });
+        })(jQuery)
+    </script>
+</body>
+</html>
+

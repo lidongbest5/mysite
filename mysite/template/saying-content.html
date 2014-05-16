@@ -1,0 +1,42 @@
+{% for feed in data %}
+<div class="feed">
+    <div class="saying">
+        <img src="/static/images/head.png" class="avatar" width=50 height=50>
+        <div class="saying-content">
+            <div class="saying-title"><span>Lidong</span>@{{ feed.place }}<span class="saying-date">{{ feed.date|date:"g:i a - j M y" }}</span></div>
+            <p>{{ feed.content }}</p>
+            {% if feed.img != '' %}
+                <div class="imgcontainer"><img src="{{ feed.img }}"></div>
+            {% endif %}
+	    {% if feed.video != '' %}
+		<video controls="" name="media"><source src="{{ feed.video }}" type="audio/mpeg"></video>
+	    {% endif %}
+	    {% if feed.audio != '' %}
+               	<audio controls="" name="media"><source src="{{ feed.audio }}" type="audio/mpeg"></audio>
+            {% endif %}
+            <div class="saying-tools clearfix">
+                <a href="javascript:;" class="expand">Expand</a>
+                <a href="javascript:;" class="reply">Reply</a>
+                <a href="javascript:;" class="favourite" num="{{ feed.favourite }}" id="{{ feed.id }}">Favourite{% if feed.favourite > 0 %}({{ feed.favourite }}){% endif %}<i></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="hidewidgets">
+        <ul>
+            {% for reply in feed.reply %}
+                <li>
+                    <div>{{ reply.name }}<span class="reply-date">{{ reply.date|date:"g:i a - j M y" }}</span></div>
+                    <p>{{ reply.content }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="reply-form clearfix">
+            <p></p>
+            <textarea>Reply to this saying...</textarea>
+            <input type="text" value="Your name...">
+            <i></i>
+            <a href="javascript:;" id="{{ feed.id }}">Submit</a>
+        </div>
+    </div>
+</div>
+{% endfor %}

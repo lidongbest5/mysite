@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Saying - Lidong's site</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/static/icon/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/static/style/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/style/common.css" />
+<link rel="stylesheet" type="text/css" href="/static/style/saying.css" />
+<!--[if IE]>
+<script type="text/javascript" src="/static/js/html5.js"></script>
+<![endif]-->
+<!--[if IE 6]>
+<script type="text/javascript" src="/static/js/DD_belatedPNG.js"></script>
+<script type="text/javascript" >
+    DD_belatedPNG.fix('.png');
+</script>
+<![endif]-->
+</head>
+<body>
+    <div class="wrapper">
+        {% include "header.html" %}
+        <div class="saying-con clearfix">
+            <aside>
+                <section class="module mini-profile">
+                    <div class="profile-header clearfix">
+                        <img src="/static/images/head.png" width=40 height=40>
+                        <div class="profile-main"><h3>Lidong@Sohu-inc</h3><p>a diaos & waiting for you,dear...</p></div>
+                    </div>
+                    <div class="profile-state">
+                        <ul class="clearfix">
+                            <li><strong>{{ saying_total }}</strong>SAYINGS</li>
+                            <li><strong>{{ reply_total }}</strong>REPLIES</li>
+                            <li><strong>{{ favourite_total.num }}</strong>FAVOURITES</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="module newest-reply">
+                    <h3>Newest replies</h3>
+                    <ul>
+                        {% for newestreply in replies %}
+                            <li>
+                                <div>{{ newestreply.name }}<span class="reply-date">{{ newestreply.date|date:"g:i a - j M y" }}</span></div>
+                                <p>{{ newestreply.content }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+            </aside>
+            <div class="saying-main">
+               <div class="header-inner">Sayings</div>
+               <div class="saying-container">
+                    <div class="feed saying-loading"></div>
+               </div>
+            </div>
+        </div>
+    </div>
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/saying.js"></script>
+{% include 'tongji.html' %}
+</body>
+</html>
+
+
+

@@ -1,0 +1,23 @@
+﻿<header class="header clearfix">
+	<section class="logo">
+		<a href="http://lidongbest5.com">
+			<img src="/static/images/logo.png" alt="logo" title="lidongbest5">
+		</a>
+		<span>Go for it and never say die!</span>
+	</section>
+	<section class="search">
+	    <form class="search-form" action="http://lidongbest5.com/search/" method="post">
+	        <input class="search-box" name="s" type="text" placeholder="Find something...">
+	        <input class="search-submit" type="submit" name="submit">
+	    </form>
+	</section>
+</header>
+<nav class="navigator">
+	<a {%if type == 'home'%}class="current"{%endif%} href="http://lidongbest5.com/"><span>HOME</span></a>
+	<a {%if type == 'blog'%}class="current"{%endif%} href="http://lidongbest5.com/blog/"><span>BLOG</span></a>
+	<a {%if type == 'saying'%}class="current"{%endif%} href="http://lidongbest5.com/saying/"><span>SAYING</span></a>
+	<a {%if type == 'projects'%}class="current"{%endif%} href="javascript:;"><span>PROJECTS</span></a>
+	<a {%if type == 'resume'%}class="current"{%endif%} href="http://lidongbest5.com/resume/"><span>RESUME</span></a>
+	<a {%if type == 'about'%}class="current"{%endif%} href="http://lidongbest5.com/about/"><span>ABOUT</span></a>
+</nav>
+		
